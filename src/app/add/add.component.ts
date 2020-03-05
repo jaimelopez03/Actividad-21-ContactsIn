@@ -13,6 +13,8 @@ declare let $: any;
 })
 export class AddComponent implements OnInit {
   contactForm: FormGroup;
+  newContact: Contact;
+  contact: Contact;
   constructor(private router: Router,
               private contactService: ContactService) {}
 
@@ -40,8 +42,8 @@ export class AddComponent implements OnInit {
       };
       this.contactService.addContact(newContact).then((result) => {
         this.router.navigate(['']);
-      }).catch((error) => {
-        console.log(error);
+      }).catch(() => {
+        alert('No se pudo agregar el contacto');
       });
       console.log(newContact);
     } else {
