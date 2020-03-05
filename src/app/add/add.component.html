@@ -38,7 +38,26 @@
       </div>
       <div class="row">
           <div class="col s12">
-            <a (click)="onSubmit()" class="container waves-effect waves-light btn modal-trigger">Add</a>
+            <button data-target="myModal" class="btn modal-trigger black">Add</button>
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Deleting Contact...</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button (click)="onSubmit()" [routerLink]= "['']" type="button" class="btn btn-default black" data-dismiss="modal">Agree</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
       </div>
   </form>

@@ -21,6 +21,7 @@ export class AddComponent implements OnInit {
         direction: 'left',
         hoverEnabled: false
       }),
+    $('.modal').modal();
     this.initForm();
 
   }
@@ -44,7 +45,11 @@ export class AddComponent implements OnInit {
       });
       console.log(newContact);
     } else {
-      alert('Tu forma no esta completa');
+      const corre = true;
+      if (corre === true) {
+        alert('Tu forma no esta completa');
+        this.router.navigate(['add']);
+      }
     }
   }
 }
