@@ -78,13 +78,29 @@ export class ContactdetailComponent implements OnInit {
         ...this.contactForm.value
       };
 
-      this.contactService.updateBook(this.contact.id, updatedContact).then((res) => {
+      this.contactService.updateContact(this.contact.id, updatedContact).then((res) => {
       this.router.navigate(['contact', 'contact.id']);
       }).catch((error) => {
         alert('Ocurrio un error al actualizar el contacto.');
       });
     } else {
       alert('Tu forma no esta completa');
+    }
+  }
+  onSubmit2() {
+    if (this.contactForm.valid) {
+      const contactUpdate: Contact = {
+        id: this.contact.id,
+        ...this.contactForm.value
+      };
+
+      this.contactService.updateContact(this.contact.id, contactUpdate).then((res) => {
+        this.router.navigate(['']);
+      }).catch((error) => {
+        alert('Ocurrio un error al actualizar el contacto');
+      });
+    } else {
+      alert('Completa todos los campos');
     }
   }
 }

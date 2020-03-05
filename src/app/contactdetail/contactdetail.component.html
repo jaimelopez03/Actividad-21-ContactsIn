@@ -46,7 +46,7 @@
         <p>Are you sure?</p>
       </div>
       <div class="modal-footer">
-        <button (click)="deleteContact(contact.id)" [routerLink]= "['']" type="button" class="btn btn-default red" data-dismiss="modal">Agree</button>
+        <button (click)="deleteContact(contact?.id)" [routerLink]= "['']" type="button" class="btn btn-default red" data-dismiss="modal">Agree</button>
       </div>
     </div>
 
@@ -58,20 +58,20 @@
   <img class="box col s12 m2" width="400" src="https://cdn4.iconfinder.com/data/icons/business-finance-vol-12-2/512/9-512.png">
   <div class="row">
     <div class="input-field col s12 m2">
-      <input formControlName="name" id="name" type="text" class="validate" value="{{contact?.name}}">
-      <label for="name">Name</label>
+      <input formControlName="name" id="name" type="text" class="validate" placeholder="{{contact?.name}}">
+      <label class= "active" for="name">Name</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12 m2">
-      <input formControlName="cellphone" id="cellphone" type="text" class="validate" value="{{contact?.cellphone}}">
-      <label for="cellphone">Cellphone</label>
+      <input formControlName="cellphone" id="cellphone" type="text" class="validate" placeholder="{{contact?.cellphone}}">
+      <label class= "active" for="cellphone">Cellphone</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12 m2">
-      <input formControlName="email" id="email" type="text" class="validate" value="{{contact?.email}}">
-      <label for="email">Email</label>
+      <input formControlName="email" id="email" type="text" class="validate" placeholder="{{contact?.email}}">
+      <label class= "active" for="email">Email</label>
     </div>
   </div>
 </form>

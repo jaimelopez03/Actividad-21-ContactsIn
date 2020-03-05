@@ -64,7 +64,7 @@ export class ContactService {
     });
   }
 
-  updateBook(contactid: string, updatecontact: Contact): Promise<boolean> {
+  updateContact(contactid: string, updatecontact: Contact): Promise<boolean> {
     return new Promise((resolve, reject) => {
       const updatedContacts = this.contacts.map((contact) => {
         if (contact.id === contactid) {

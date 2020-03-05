@@ -51,7 +51,7 @@ export class EditComponent implements OnInit {
         ...this.contactForm.value
       };
 
-      this.contactService.updateBook(this.contact.id, updatedContact).then((res) => {
+      this.contactService.updateContact(this.contact.id, updatedContact).then((res) => {
         this.router.navigate(['management']);
       }).catch((error) => {
         alert('Ocurrio un error al actualizar el contacto.');
