@@ -1,0 +1,79 @@
+<header>
+  <app-header></app-header>
+</header>
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large amber accent-3">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+  <ul>
+    <li><a [routerLink]="['']" class="btn-floating green"><i class="material-icons">home</i></a></li>
+  </ul>
+</div>
+<form [formGroup]= "contactForm" *ngIf="!display">
+  <img class="box col s12 m2" width="400" src="https://cdn4.iconfinder.com/data/icons/business-finance-vol-12-2/512/9-512.png">
+  <div class="row">
+    <div class="input-field col s12 m2">
+      <input disabled formControlName="name" id="name" type="text" class="validate" value="{{contact?.name}}">
+      <label class="active" for="name">Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12 m2">
+      <input disabled formControlName="cellphone" id="cellphone" type="text" class="validate" value="{{contact?.cellphone}}">
+      <label class="active" for="cellphone">Cellphone</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12 m2">
+      <input disabled formControlName="email" id="email" type="text" class="validate" value="{{contact?.email}}">
+      <label class="active" for="email">Email</label>
+    </div>
+  </div>
+</form>
+<a (click)="updateDisplay()" class="waves-effect waves-light btn col s12 m2 black" *ngIf="!display">Edit</a>
+<button data-target="myModal" class="btn modal-trigger red" *ngIf="!display">Delete</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Deleting Contact...</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button (click)="deleteContact(contact.id)" [routerLink]= "['']" type="button" class="btn btn-default red" data-dismiss="modal">Agree</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Update -->
+<form [formGroup]= "contactForm" (ngSubmit)="onSubmit()" *ngIf="display">
+  <img class="box col s12 m2" width="400" src="https://cdn4.iconfinder.com/data/icons/business-finance-vol-12-2/512/9-512.png">
+  <div class="row">
+    <div class="input-field col s12 m2">
+      <input formControlName="name" id="name" type="text" class="validate" value="{{contact?.name}}">
+      <label for="name">Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12 m2">
+      <input formControlName="cellphone" id="cellphone" type="text" class="validate" value="{{contact?.cellphone}}">
+      <label for="cellphone">Cellphone</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12 m2">
+      <input formControlName="email" id="email" type="text" class="validate" value="{{contact?.email}}">
+      <label for="email">Email</label>
+    </div>
+  </div>
+</form>
+<a (click)="return()" class="waves-effect waves-light btn col s12 m2 black" *ngIf="display">Cancel</a>
+<a (click)= "onSubmit()" class="waves-effect waves-light btn col s12 m2 red" *ngIf="display">Update</a>
